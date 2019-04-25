@@ -31,7 +31,7 @@ while True:
     triot.leds[0] = Colour('green')
 
     # add a row of data to the file. the {} will be replaced by the values in 
-    print("{},{},{},{}".format(row_count,
+    print("{},{},{},{},{}".format(row_count,
                                deg_decmin_to_dec_deg(gps.lat),
                                deg_decmin_to_dec_deg(gps.lon),
                                pm.pm_10,
