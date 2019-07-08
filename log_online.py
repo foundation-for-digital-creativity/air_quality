@@ -1,6 +1,7 @@
 import triot
 from inventthings.particulates import particulate_sensor as pm
 import inventthings.iot
+import utime as time
 
 #start by turning light on as yellow so we know it's on!
 triot.leds[0] = Colour('yellow')
