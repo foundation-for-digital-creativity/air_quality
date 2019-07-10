@@ -10,11 +10,19 @@ triot.leds[0] = Colour('yellow')
 pm.enable_sensor=True
 pm.enable_power=True
 
+def record_data(self, data):
+    r = self.send({"readings":data})
+    r.close()
+    return r
+
+
+
 inventthings.iot.wlan_connect(ssid='THE_SSID', password='THE_PASSWORD')
 nm = inventthings.iot.NetworkManager()
 
 def on_connected():
     conn = inventthings.iot.InventThingsConnection(key="YOUR_THING_KEY")
+    conn.record_data = record_data
     particulates = inventthings.iot.Endpoint("pm2.5",inventthings.iot.PARTICULATES)
     sensors = inventthings.iot.EndpointSet([particulates])
     conn.register_sensor_set(sensors.ep_descriptions())
