@@ -2,6 +2,10 @@ import triot
 #start by turning light on as yellow so we know it's on!
 triot.leds[0] = Colour('yellow')
 
+#setup the expansion port
+import inventthings
+inventthings.expansion_i2c = triot.expansion_i2c
+
 #import the sensors
 from inventthings.particulates import particulate_sensor as pm
 from inventthings.gps import gps_sensor as gps
