@@ -10,6 +10,13 @@ triot.leds[0] = Colour('yellow')
 pm.enable_sensor=True
 pm.enable_power=True
 
+def record_data(self, data):
+    r = self.send({"readings":data})
+    r.close()
+    return r
+
+inventthings.iot.InventThingsConnection.record_data = record_data
+
 inventthings.iot.wlan_connect(ssid='THE_SSID', password='THE_PASSWORD')
 nm = inventthings.iot.NetworkManager()
 
